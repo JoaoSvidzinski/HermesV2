@@ -1,7 +1,5 @@
-![HermesV2_logo](docs/HERMES_LOGO-jaune3.png)
-
 <p align="center">
-  <h1 align="center">HermesV2 </h1>
+  <h1 align="center"> ![HermesV2_logo](docs/HERMES_LOGO-jaune3.png) </h1>
   <p align="center">
     network music piece (2020-2022) by João Svidzinski
   </p>
@@ -26,7 +24,7 @@ The other Faust codes (*compresseur~.mxo* and *flanger7B~.mxo*) are in */faust* 
 - [OSSIA Max](https://ossia.io/site-libossia/download.html#max-binding)
 
 - [Granulateur matriciel](https://github.com/JoaoSvidzinski/granulateur-matriciel)
-- [mTDelHarmo](http://alainbonardi.net/telechargements/_mTDelHarmo_v_1_2.zip)
+- [mTDelHarmo](http://alainbonardi.net/telechargements/_mTDelHarmo_v_1_2.zip) by Alain Bonardi
 
 ## Patch installation
 
@@ -52,7 +50,7 @@ The other Faust codes (*compresseur~.mxo* and *flanger7B~.mxo*) are in */faust* 
 - Open *Patch Max/__Score.maxpat* Patch
 - Hit the *expose oscquery 2349 4932* message.
 
-- Open *Patch Max/___Hermes_V2-8ch-2022-Final.maxpat* Patch
+- Open *Patch Max/___Hermes_V2-8ch-2022-Final.maxpat* patch
 - Configure audio status (see DSP status below).
 - Turn on the DSP
 
