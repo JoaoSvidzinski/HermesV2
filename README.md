@@ -10,7 +10,7 @@
 # Software list
 
 - [Max 8](https://cycling74.com/products/max)
-- [Hoa library](https://hoalibrary.mshparisnord.fr/)
+- [Hoa library](http://hoalibrary.mshparisnord.fr/)
 - [OSSIA SCORE](https://ossia.io/)
 - [Open Stage Control](http://openstagecontrol.ammd.net/)
 
@@ -40,7 +40,7 @@ The other Faust codes (*compresseur~.mxo* and *flanger7B~.mxo*) are in */faust* 
 - Open **Open Stage Control** and load the */OpenStageControl/_hermes-tab.json* file.
 - Configure the send and port as the picture below.
 
--Open **OSSIA SCORE** and load */OSSIA SCORE/__hermes_2022_Final.score* scenario
+- Open **OSSIA SCORE** and load */OSSIA SCORE/__hermes_2022_Final.score* scenario
 - Configure the send and port as the picture below.
 
 ![Port_config](  docs/OSCconfiguration.png)
