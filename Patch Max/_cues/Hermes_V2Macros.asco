@@ -1,0 +1,76 @@
+
+
+@macro_def  @HarmoInit{
+
+	group	{
+	toMTap setDuration 0 100 200 500 800 1000 1500 1800 2000;
+	toMTap setTransposition 0 -500 500 600 700 800 900 1000;
+	toMTap setFd 0 0.5 0.5 0.5 0.5 0.5 0.5 0.5;
+	toMTap setInp 0 1 1 1 1 1 1 1;
+	toMTap setOut 0 1 1 1 1 1 1 1;
+	toMTap sethStretch 0 1 1 1 1 1 1 1;
+	toMTap tStretch 1;
+	toMTap smoothDuration 1;
+	toMTap wHarmo 100;
+	toMTap displayAll;
+	}
+
+}
+
+@macro_def  @HarmoAigu{
+
+	group	{
+	toMTap setDuration 0 100 200 500 800 1000 1500 1800 2000;
+	toMTap setTransposition 0 1000 1800 1900 2000 2100 2200 2400;
+	toMTap setFd 0 0.5 0.5 0.5 0.5 0.5 0.5 0.5;
+	toMTap setInp 0 1 1 1 1 1 1 1;
+	toMTap setOut 0 1 1 1 1 1 1 1;
+	toMTap sethStretch 0 1 1 1 1 1 1 1;
+	toMTap tStretch 1;
+	toMTap smoothDuration 1;
+	toMTap wHarmo 30;
+	toMTap displayAll;
+
+	Hmatrix ($feedbackMatrix("DiagonalDown"))
+	}
+
+}
+
+@macro_def @stop {
+
+	group {
+	trigAll 0
+	@e1_All(0,0,0,0,0,0,"A.32")
+	@e2_All(0,0,0,0,0,0,"A.32")
+
+	}
+}
+
+@macro_def @Grain_court_long{
+
+	group {
+		toGrain setSize 0 50 50 50 50 50 50 50;
+		toGrain setDel 0 3000 5300 2300 9300 8300 6300 2300;
+		toGrain setRare 0 0.9 0.5 0.9 0.7 0.7 0.5 0.7;
+		toGrain setFdx 0 0.9 0.9 0.9 0.9 0.9 0.9 0.9;
+		toGrain setInp 0 0.5 0.5 0.5 0.5 0.5 0.5 0.5;
+		toGrain setOut 0 0.5 0.5 0.5 0.5 0.5 0.5 0.5;
+		toGrain displayAll;
+			}
+	Gmatrix ($feedbackMatrix("DiagonalUp"))
+}
+
+@macro_def @Grain_court_court{
+
+	group{
+		toGrain setSize 0 50 50 50 50 50 50 50;
+		toGrain setDel 0 300 530 230 930 830 630 230;
+		toGrain setRare 0 0.5 0.5 0.9 0.5 0.5 0.5 0.5;
+		toGrain setFdx 0 0.9 0.9 0.9 0.9 0.9 0.9 0.9;
+		toGrain setInp 0 0.5 0.5 0.5 0.5 0.5 0.5 0.5;
+		toGrain setOut 0 0.5 0.5 0.5 0.5 0.5 0.5 0.5;
+		toGrain displayAll;
+	}
+
+	Gmatrix ($feedbackMatrix("DiagonalUp"))
+}

@@ -1,0 +1,78 @@
+
+//////// Flanger functions ////////
+@fun_def @flangDepthAll($val) {
+
+  ForAll $num in (7)
+  {
+    Flang @reduce(@+, ["fldepth",($num)]) $val
+  }
+
+}
+
+
+@fun_def @flangfreqAll($val) {
+
+  ForAll $num in (7)
+  {
+    Flang @reduce(@+, ["flfreq",($num)]) $val
+  }
+
+}
+//////// Grain functions ////////
+@fun_def @grainAll($setSize, $setDel, $setRare, $setFdx, $setInp, $setOut) {
+
+toGrain setSize 0 $setSize $setSize $setSize $setSize $setSize $setSize $setSize
+toGrain setDel 0 $setDel $setDel $setDel $setDel $setDel $setDel $setDel
+toGrain setRare 0 $setRare $setRare $setRare $setRare $setRare $setRare $setRare
+toGrain setFdx 0 $setFdx $setFdx $setFdx $setFdx $setFdx $setFdx $setFdx
+toGrain setInp 0 $setInp $setInp $setInp $setInp $setInp $setInp $setInp
+toGrain setOut 0 $setOut $setOut $setOut $setOut $setOut $setOut $setOut
+toGrain displayAll;
+}
+
+//////// harmo functions ////////
+@fun_def @harmoAll($setDur, $setTrans, $setFd, $setInp, $setOut, $sethStretch, $tStretch, $smoothDuration, $wHarmo) {
+
+toMTap setDuration 0 $setDur $setDur $setDur $setDur $setDur $setDur $setDur
+toMTap setTransposition 0 $setTrans $setTrans $setTrans $setTrans $setTrans $setTrans $setTrans
+toMTap setFd 0 $setFd $setFd $setFd $setFd $setFd $setFd $setFd
+toMTap setInp 0 $setInp $setInp $setInp $setInp $setInp $setInp $setInp
+toMTap setOut 0 $setOut $setOut $setOut $setOut $setOut $setOut $setOut
+toMTap sethStretch 0 $sethStretch $sethStretch $sethStretch $sethStretch $sethStretch $sethStretch $sethStretch
+toMTap tStretch $tStretch
+toMTap smoothDuration $smoothDuration
+toMTap wHarmo $wHarmo
+toMTap displayAll;
+}
+
+@fun_def @harmoConfig($setInp, $setOut, $sethStretch, $tStretch, $smoothDuration, $wHarmo) {
+
+toMTap setInp 0 $setInp $setInp $setInp $setInp $setInp $setInp $setInp
+toMTap setOut 0 $setOut $setOut $setOut $setOut $setOut $setOut $setOut
+toMTap sethStretch 0 $sethStretch $sethStretch $sethStretch $sethStretch $sethStretch $sethStretch $sethStretch
+toMTap tStretch $tStretch
+toMTap smoothDuration $smoothDuration
+toMTap wHarmo $wHarmo
+toMTap displayAll
+}
+//////// Sampler 2 functions ////////
+@fun_def @e1_All($metro, $rare, $valeurMin, $valeurMax, $envDur, $dure, $sample) {
+
+  ForAll $num in (6)
+  {
+    @command("E" + ($num + 1)) $metro $rare $valeurMin $valeurMax $envDur $dure $sample
+  }
+}
+//////// Sampler 2 functions ////////
+@fun_def @e2_All($metro, $rare, $valeurMin, $valeurMax, $envDur, $dure, $sample) {
+
+  ForAll $num in (6)
+  {
+    @command("E" + ($num + 7)) $metro $rare $valeurMin $valeurMax $envDur $dure $sample
+  }
+}
+//////// Sampler 3 functions ////////
+@fun_def @e3($instance, $envDur, $dure, $sample) {
+
+  @command("Ec-Ossia-" + ($instance)) $envDur $dure $sample
+ }

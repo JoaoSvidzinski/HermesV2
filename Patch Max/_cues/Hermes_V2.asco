@@ -1,0 +1,517 @@
+
+antescofo-mess gamma -1.0, suivi 0
+
+@INSERT Hermes_V2Functions.asco
+@INSERT Hermes_V2Matrix.asco
+@INSERT Hermes_V2Macros.asco
+@INSERT Hermes_V2Whenever.asco
+
+@stop
+
+$cue := false
+$cue_grain := false
+
+ForAll $i in (8){
+	@command("Ec" + ($i + 1)) "loop" 0
+}
+		/* labela "ready"
+		toImatrix 1
+		/* trig 0 */
+		/* granular-gain-swtich 1; only granular */
+
+//@grainAll($setSize, $setDel, $setRare, $setFdx, $setInp, $setOut)
+//@harmoAll($setDur, $setTrans, $setFd, $setInp, $setOut, $sethStretch, $tStretch, $smoothDuration, $wHarmo)
+//@harmoConfig($setInp, $setOut, $sethStretch, $tStretch, $smoothDuration, $wHarmo)
+//@eAll($metro, $rare, $valeurMin, $valeurMax, $envDur, $dure, $sample)
+//@e3($instance, $envDur, $dure, $sample)
+
+
+/////// CUE GRAIN /////////
+
+////////////////////////////
+/////// CUE EVENTS /////////
+////////////////////////////
+
+////////// CUE 1 ///////////
+whenever ($cue == 1){
+
+	trigAll 1
+
+	@flangDepthAll(3)
+	@flangfreqAll(3)
+	Flang floffset 5
+
+	@e1_All(500, 20, 15000, 15000, 5000, 15000, "A.26")
+
+	Imatrix ($inputMatrix("DiagonalRight"))
+	Hmatrix "clear"
+
+	onOff-xy_ossia 0
+
+	print "event 1"
+
+}
+////////// CUE 2 ///////////
+whenever ($cue == 2)
+ {
+
+	 @flangDepthAll(3)
+	 @flangfreqAll(0.4)
+	 Flang floffset 100
+
+	 label "event 2"
+
+ }
+////////// CUE 3 ///////////
+ whenever ($cue == 3)
+  {
+		@flangDepthAll(3)
+		@flangfreqAll(0.8)
+		Flang floffset 100
+
+		@HarmoInit
+
+		label "event 3"
+
+  }
+////////// CUE 4 ///////////
+	whenever ($cue == 4)
+	{
+
+	 		@e1_All(500, 20, 1000, 1500, 1300, 1300, "A.9")
+	 		@e2_All(500, 20, 10000, 18000, 5000, 15000, "A.26")
+
+			Imatrix ($inputMatrix("DiagonalLefth"))
+
+	 		E6 500 10 1000 1500 1300 1300 A.9;
+	 		E7 500 20 1000 1500 1300 1300 A.9;
+	 		E8 1000 10 1000 1500 1300 1300 A.9;
+
+	 		label "event 4"
+
+   }
+////////// CUE 5 ///////////
+	 whenever ($cue == 5)
+	 {
+	 	@e2_All(500, 20, 100, 300, 200, 2000, "A.2")
+
+	  E8 500 20 100 300 200 2000 A.8
+
+		E11 1000 20 10000 18000 5000 15000 "A.26"
+		E12 1000 40 10000 18000 5000 15000 "A.26"
+		}
+////////// CUE 6 ///////////
+		whenever ($cue == 6)
+		{
+
+	 	E9 500 20 20 1800 600 630 A.8;
+		E10 500 20 20 1800 600 630 A.8;
+		E11 500 20 20 1800 600 630 A.8;
+		E12 500 20 20 1800 600 630 A.8;
+
+		}
+////////// CUE 7 ///////////
+		whenever ($cue == 7)
+		{
+			E9 500 20 10000 18000 5000 30000 A.31;
+			E10 500 20 10000 18000 5000 30000 A.31;
+			E11 500 20 10000 18000 5000 30000 A.31;
+			E12 500 20 10000 18000 5000 30000 A.31;
+		}
+
+////////// CUE 8 ///////////
+				whenever ($cue == 8)
+				{
+					Ec1 loop 1;
+					Ec1 set A.13;
+					Ec1_output-lvl 1.;
+					Ec1 start 10 100 50;
+
+					onOff-xy_ossia 1
+				}
+////////// CUE 9 ///////////
+				whenever ($cue == 9)
+				{
+				Ec1 loop 1;
+				Ec1 set A.15;
+				Ec1 start 10 100 50;
+				Ec1_output-lvl 1.
+			}
+
+////////// CUE 10 ///////////
+			whenever ($cue == 10)
+			{
+			ForAll $i in (7){
+				@command("Ec" + ($i + 2)) "loop" 0
+				}
+
+			onOff-xy_ossia 0
+			}
+////////// CUE 11 ///////////
+			whenever ($cue == 11)
+			{
+				ForAll $i in (8){
+				@command("Ec" + ($i + 1)) "loop" 0
+				}
+			}
+
+////////// CUE 12 ///////////
+			whenever ($cue == 12)
+			{
+				Ec2 loop 1;
+				Ec2 set A.14;
+				Ec2_output-lvl 1.;
+				Ec2 start 10 100 50;
+			}
+
+////////// CUE 13 ///////////
+				whenever ($cue == 13)
+				{
+				trigAll 1
+
+				@flangDepthAll(3)
+				@flangfreqAll(3)
+				Flang floffset 5
+
+				@e1_All(300, 50, 10000, 20000, 2000, 15000, "A.26")
+
+				Imatrix ($inputMatrix("DiagonalLefth"))
+				Hmatrix "clear"
+				@HarmoAigu
+
+				}
+////////// CUE 14 ///////////
+				whenever ($cue == 14)
+				{
+						Ec1 loop 1;
+						Ec1 set A.31;
+						Ec1 start 100 500 50;
+						Ec1_output-lvl 0.3;
+				}
+////////// CUE 15 ///////////
+				 whenever ($cue == 15)
+					{
+						E9 200 50 10000 18000 1500 30000 A.31;
+						E10 200 50 10000 18000 1500 30000 A.31;
+						E11 200 50 10000 18000 1500 30000 A.31;
+						E12 200 50 10000 18000 1500 30000 A.31;
+					}
+
+
+					////////// CUE 99 - événement test ///////////
+									 whenever ($cue == 99)
+										{
+											Ec1 loop 1;
+											Ec1 set A.26;
+											Ec1 start 100 500 50;
+											Ec1_output-lvl 0.3;
+
+											Imatrix "clear"
+
+											toGrain setInp 0 0 0 0 0 0 0 0;
+											toGrain setOut 0 0 0 0 0 0 0 0;
+										}
+////////////////////////////
+/////// CUE GRAIN /////////
+////////////////////////////
+
+////////// CUE GRAIN 1 ///////////
+whenever ($cue_grain == 1){
+
+		@grainAll(1000, 1000, 0.5, 0.9, 1, 1)
+		Gmatrix "clear"
+
+}
+////////// CUE GRAIN 2 ///////////
+whenever ($cue_grain == 2){
+		 @grainAll(300, 1000, 0.6, 0.9, 1, 1)
+}
+////////// CUE GRAIN 3 ///////////
+whenever ($cue_grain == 3){
+			@Grain_court_long
+}
+////////// CUE GRAIN 4 ///////////
+whenever ($cue_grain == 4){
+			@Grain_court_long
+}
+
+
+EVENT 1 1_init
+
+		trigAll 1
+
+		@flangDepthAll(3)
+		@flangfreqAll(3)
+		Flang floffset 5
+
+		@grainAll(1000, 1000, 0.5, 0.9, 1, 1)
+		@e1_All(500, 20, 15000, 15000, 5000, 15000, "A.26")
+
+		/* @e3(1,5000,15000,"A.25")
+		@e3(2,10000,14000,"A.26")
+		@e3(3,5000,12000,"A.27")
+		@e3(4,5000,12000,"A.26") */
+
+		Imatrix ($inputMatrix("DiagonalLefth"))
+		Gmatrix "clear"
+		Hmatrix "clear"
+
+		/* @HarmoInit */
+
+		print "event 1"
+
+
+EVENT 2 2_init
+
+		@grainAll(300, 1000, 0.6, 0.9, 1, 1)
+
+		@flangDepthAll(3)
+		@flangfreqAll(0.4)
+		Flang floffset 100
+
+		print "event 2"
+
+EVENT 3 3_init
+
+
+		@flangDepthAll(3)
+		@flangfreqAll(0.8)
+		Flang floffset 100
+
+		@HarmoInit
+
+		print "event 3"
+
+EVENT 4 4_partie2_a
+
+	Ec1 set "A.31"
+	Ec1_output-lvl 0.8
+	Ec1 "start"
+
+	0.08 Ec2 set "A.31"
+	Ec2_output-lvl 0.7
+	Ec2 "start"
+
+		@e1_All(500, 20, 1000, 1500, 1300, 1300, "A.9")
+		@e2_All(500, 20, 10000, 18000, 5000, 15000, "A.26")
+
+		E6 500 10 1000 1500 1300 1300 A.9;
+		E7 500 20 1000 1500 1300 1300 A.9;
+		E8 1000 10 1000 1500 1300 1300 A.9;
+
+		@Grain_court_long
+		/* Gmatrix ($feedbackMatrix("DiagonalUp")) */
+		Gmatrix 2
+
+		print "event 4"
+
+EVENT 5 5_partie
+
+		@e1_All(500, 20, 100, 300, 200, 2000, "A.2")
+
+		print "event 5"
+
+EVENT 6 6_partie
+
+			trig-Ossia 6
+
+			@Grain_court_long
+
+			print "event 6"
+
+EVENT 7 7_partie
+
+			trig-Ossia 0
+
+			@e1_All(500, 20, 1000, 1500, 1300, 1300, "A.9")
+			E7 500 20 1000 1500 1300 1300 A.9;
+			E8 1000 10 1000 1500 1300 1300 A.9;
+
+			print "event 7"
+
+
+EVENT 8 8_partie
+
+				trig-Ossia 3
+
+				@e1_All(500, 20, 1000, 1500, 1300, 1300, "A.9")
+				E7 500 20 1000 1500 1300 1300 A.9;
+				E8 1000 10 1000 1500 1300 1300 A.9;
+
+				print "event 8"
+
+EVENT 9 9_partie
+
+			trig-Ossia 5
+
+
+			E9 500 20 20 1800 600 630 A.8;
+			E10 500 20 20 1800 600 630 A.8;
+			E11 500 20 20 1800 600 630 A.8;
+			E12 500 20 20 1800 600 630 A.8;
+
+
+			print "event 9"
+
+EVENT 15 5_partie3_b
+
+		@e1_All(500, 20, 1000, 1500, 1300, 1300, "A.9")
+
+		E6 500 10 1000 1500 1300 1300 A.9;
+		E7 500 20 1000 1500 1300 1300 A.9;
+		E8 1000 10 1000 1500 1300 1300 A.9;
+
+		print "event 5"
+
+EVENT 16 6_partie3_c
+
+		@e2_All(500, 20, 10000, 18000, 5000, 15000, "A.27")
+
+		print "event 6"
+
+EVENT 17 7_partie3_d
+
+		E9 500 20 20 1800 600 630 A.8;
+		E10 500 20 20 1800 600 630 A.8;
+		E11	500 20 20 1800 600 630 A.8;
+		E12 500 20 20 1800 600 630 A.8;
+
+		print "event 7"
+
+EVENT 18 8_partie3_e
+
+		E9 500 20 10000 18000 5000 30000 A.31;
+		E10 500 20 10000 18000 5000 30000 A.31;
+		E11 500 20 10000 18000 5000 30000 A.31;
+		E12 500 20 10000 18000 5000 30000 A.31;
+
+	print "event 8"
+
+EVENT 19 9_partie4
+
+		E1 1000 20 20 1800 1000 1000 A.24;
+		E2 5000 20 20 1800 1000 1000 A.24;
+		E3 7000 20 20 1800 1000 1000 A.24;
+		E4 3000 20 20 1800 1000 1000 A.24;
+
+		E9 3000 20 20 1800 1000 1000 A.30;
+		E10 3000 20 20 1800 1000 1000 A.30;
+		E11 3000 20 20 1800 1000 1000 A.30;
+		E12 3000 20 20 1800 1000 1000 A.30;
+
+		@grainAll(300, 1000, 0.9, 0.5, 1, 1)
+		toGrain setSize 0 300 200 100 300 200 100 5000;
+
+		print "event 9"
+
+
+EVENT  20 10_partie
+
+	Gmatrix "clear"
+
+		@flangDepthAll(100)
+		@flangfreqAll(0.2)
+		Flang floffset 5
+
+	/* @flangDepthAll(500)
+	@flangfreqAll(3)
+	Flang floffset 100 */
+
+	@grainAll(1000, 1000, 0.5, 0.9, 1, 1)
+			/* @harmoAll($setDur, $setTrans, $setFd, $setInp, $setOut, $sethStretch, $tStretch, $smoothDuration, $wHarmo) */
+	@e1_All(500, 20, 15000, 15000, 5000, 15000, "A.26")
+
+	print "event 10"
+
+EVENT  21 11_partie
+
+	/* @e2_All(500, 20, 15000, 15000, 100, 15000, "A.26") */
+
+	print "event 11"
+
+EVENT  12 12_partie
+
+	Ec1 set "A.28"
+	Ec1_output-lvl 0.3
+
+	whenever ($EC1_bang)
+	 {
+		 Ec1 "start"
+	 }
+
+	print "event 12"
+
+EVENT  13 13_partie
+
+	Ec2 set "A.29"
+	Ec2_output-lvl 0.3
+
+	whenever ($EC2_bang)
+	 {
+		 Ec2 "start"
+	 }
+
+
+EVENT  14 14_partie
+
+Ec1 set "A.30"
+Ec1_output-lvl 0.3
+
+whenever ($EC1_bang)
+ {
+	 Ec1 "start"
+ }
+
+EVENT  15 15_partie
+
+Ec1 set "A.31"
+Ec1_output-lvl 0.3
+
+whenever ($EC1_bang)
+ {
+	 Ec1 "start"
+ }
+
+500s Ec2 set "A.31"
+Ec2_output-lvl 0.5
+
+whenever ($EC2_bang)
+ {
+	 Ec2 "start"
+ }
+
+EVENT  38 8_Mesure82_Cycle1_section8a
+
+
+EVENT  39 9_Mesure96_Cycle1_section8b
+
+
+
+EVENT  40 10_Mesure117_Cycle1_cue10
+
+		toMTap setDuration 0;
+		toMTap setTransposition 0 500 -550 -50 -50 500 0 0; 1-5 Violin1 Violin2 Viola Cello Bass
+		toMTap setFd 0 0.5 0.5 0.5 0.5 0.5 0.5 0.5;
+		toMTap setInp 0 1 1 1 1 1 1 1;
+		toMTap setOut 0 1 1 1 1 1 1 1;
+		toMTap sethStretch 0 1 1 1 1 1 1 1;
+		toMTap tStretch 1;
+		toMTap smoothDuration 1;
+		toMTap wHarmo 100;
+		toMTap displayAll;
+
+
+EVENT  41 11_Mesure117_Cycle1_cue10
+
+		GH_matrix1 clear
+		H_matrix1 clear
+
+EVENT  42 12_Mesure117_Cycle2
+
+		toGrain setSize 0 20 20 20 20 20 20 20;
+		toGrain setDel 0 500 500 500 500 500 500 500;
+		toGrain setRare 0 0.9 0.9 0.9 0.9 0.9 0.9 0.9;
+		toGrain setFdx 0 0.9 0.9 0.9 0.9 0.9 0.9 0.9;
+		toGrain setInp 0 1 1 1 1 1 1 1;
+		toGrain setOut 0 1 1 1 1 1 1 1;
+		toGrain displayAll;

@@ -1,0 +1,145 @@
+$Ec_OSC := false
+
+
+whenever ($Ec_OSC){
+
+   @command(@reduce(@+,["Ec",($Ec_OSC[0])])) "set" ($Ec_OSC[2])
+   @command(@reduce(@+,["Ec",($Ec_OSC[0]),"_output-lvl"])) ($Ec_OSC[1])
+
+   if(@size($Ec_OSC) > 3){
+    @command(@reduce(@+,["Ec",($Ec_OSC[0])])) "start" 0 ($Ec_OSC[3]) ($Ec_OSC[4])
+
+   } else{
+    @command(@reduce(@+,["Ec",($Ec_OSC[0])])) "start"
+   }
+
+}
+
+/// whenever En - Enchantillonneur ////
+$EN_0 := false
+
+whenever($EN_0){
+
+  ForAll $i in (3){
+
+    @e3(($i +1), 1000, 1000, "A.10")
+  }
+}
+
+
+
+$EN_1 := false
+
+whenever($EN_1){
+
+  @e3(1,5000,15000,"A.25")
+  @e3(2,10000,14000,"A.26")
+  @e3(3,5000,12000,"A.27")
+  @e3(4,5000,12000,"A.26")
+
+  print "En_1 on"
+
+}
+
+$EN_2 := false
+
+whenever($EN_2){
+
+  @e3(1,1000,1000,"A.30")
+  @e3(2,1000,1000,"A.30")
+  @e3(3,1000,1000,"A.30")
+  @e3(4,1000,1000,"A.30")
+
+  print "En_2 on"
+}
+
+$EN_3 := false
+
+whenever($EN_3){
+
+  @e3(1,5000,7000,"A.25")
+  @e3(2,10000,14000,"A.26")
+  @e3(3,5000,12000,"A.27")
+  @e3(4,5000,12000,"A.26")
+
+}
+
+$EN_4 := false
+
+whenever($EN_4){
+
+  @e3(1,1300,500,"A.9")
+  @e3(2,1300,500,"A.9")
+  @e3(3,1300,500,"A.9")
+  @e3(4,1300,500,"A.9")
+
+}
+
+$EN_5 := false
+
+whenever($EN_5){
+
+  @e3(1,1400,2800,"A.2")
+  @e3(2,800,1000,"A.3")
+
+
+}
+
+$EN_6 := false
+
+/////// événement test - cue 99 ////////
+whenever($EN_6){
+
+  @e3(1,1000,2000,"A.25")
+  @e3(2,1000,2000,"A.25")
+  @e3(3,1000,2000,"A.25")
+  @e3(4,1000,2000,"A.25")
+
+  Imatrix "clear"
+
+  toGrain setInp 0 0 0 0 0 0 0 0;
+  toGrain setOut 0 0 0 0 0 0 0 0;
+
+}
+
+$EC1_bang := false
+$EC2_bang := false
+$EC3_bang := false
+$EC4_bang := false
+
+$EN_stop1 := false
+$EN_stop2 := false
+$EN_stop3 := false
+
+/// whenever stop ////
+whenever($EN_stop1){
+
+	 	@e1_All(500, 20, 1000, 1500, 1300, 1300, "A.32")
+
+}
+
+whenever($EN_stop2){
+
+	 	@e2_All(500, 20, 1000, 1500, 1300, 1300, "A.32")
+
+}
+whenever($EN_stop3){
+
+  	@e1_All(500, 20, 1000, 1500, 1300, 1300, "A.32")
+	 	@e2_All(500, 20, 1000, 1500, 1300, 1300, "A.32")
+
+}
+
+/// whenever test ////
+
+@fun_def @test($message){
+  print $message
+}
+
+whenever($xxx)
+{
+
+  @test($xxx[0])
+  print ($xxx[1])
+
+}
